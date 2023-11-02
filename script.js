@@ -28,7 +28,6 @@ const typeColors = {
     default: '#2A1A1F',  
 };
 
-
 const searchPokemon = event => {
     event.preventDefault();
     const { value } = event.target.pokemon;
@@ -40,17 +39,15 @@ const searchPokemon = event => {
 
 const renderPokemonData = data => {
     const sprite = data.sprites.front_default;
-    const { types, stats, abilities } = data; // Agregar 'types' aquí
+    const { types, stats, abilities } = data;
 
     pokeName.textContent = data.name;
     pokeImg.setAttribute('src', sprite);
     pokeId.textContent = `Nº ${data.id}`;
     setCardColor(types);
     renderPokemonStatsAndAbilities(stats, abilities);
-    renderPokemonTypes(types); // Llamar a la función para mostrar los tipos
+    renderPokemonTypes(types);
 }
-
-
 
 const renderPokemonStatsAndAbilities = (stats, abilities) => {
     pokeStats.innerHTML = '';
@@ -90,26 +87,20 @@ const renderPokemonStatsAndAbilities = (stats, abilities) => {
     });
 }
 
-
 const setCardColor = types => {
     const colorOne = typeColors[types[0].type.name];
     const colorTwo = types[1] ? typeColors[types[1].type.name] : typeColors.default;
-    pokeImg.style.backgroundColor = colorOne; // Cambia el color de fondo
-    pokeImg.style.color = '#FFF'; // Cambia el color del texto a blanco
+    pokeImg.style.backgroundColor = colorOne;
+    pokeImg.style.color = '#FFF';
 }
-
 
 const renderPokemonTypes = types => {
     pokeTypes.innerHTML = '';
     types.forEach(type => {
         const typeTextElement = document.createElement("div");
-        typeTextElement.style.backgroundColor = typeColors[type.type.name]; // Cambia el color de fondo
-        typeTextElement.style.color = '#FFF'; // Cambia el color del texto a blanco
+        typeTextElement.style.backgroundColor = typeColors[type.type.name];
+        typeTextElement.style.color = '#FFF';
         typeTextElement.textContent = type.type.name;
         pokeTypes.appendChild(typeTextElement);
     });
 }
-
-
-
-
