@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="script.js" type="text/javascript" defer></script>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <form action="" onsubmit="searchPokemon(event)">
+        <input type="text" name="pokemon" autocomplete="off">
+    </form>
+    <div data-poke-card class="poke-card">
+        <div data-poke-name>Pokedex</div>
+        <div data-poke-img-container class="img-container">
+            <img data-poke-img class="poke-img" src="data:image/png;base64,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"/>
+        </div>
+        <div data-poke-id></div>
+        <div data-poke-types class="poke-types"></div>
+        <div data-poke-stats class="poke-stats"></div>
+        <div data-poke-stats class="poke-stats"></div>
+        <div data-poke-ability></div>
+        <div data-poke-ability-description></div>
+        <div data-poke-abilities></div>
+          
+</body>
+</html>
+
